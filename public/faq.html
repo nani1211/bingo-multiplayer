@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help &amp; FAQ — Bingo Multiplayer</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,sans-serif;background:#1a1a2e;color:#ccc;line-height:1.75;padding:1.5rem}
+    .page{max-width:720px;margin:0 auto}
+    nav{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.8rem;align-items:center}
+    nav a{color:#7fb3ff;font-size:.85rem;padding:.3rem .65rem;border-radius:6px;background:#16213e;text-decoration:none}
+    nav a:hover{background:#1e2f55;color:#fff}
+    nav .home{background:#e94560;color:#fff;font-weight:700}
+    nav .home:hover{background:#c73050}
+    h1{color:#e94560;font-size:1.7rem;margin-bottom:.4rem}
+    .subtitle{color:#555;font-size:.85rem;margin-bottom:2rem}
+    h2{color:#e94560;font-size:1.1rem;margin:2rem 0 .8rem;padding-bottom:.3rem;border-bottom:1px solid #2a2a4a}
+    .q{color:#fff;font-size:.95rem;font-weight:600;margin:1.2rem 0 .3rem;cursor:pointer}
+    .q::before{content:"Q  ";color:#e94560;font-weight:900}
+    p{margin-bottom:.75rem;font-size:.92rem;color:#ccc}
+    ul{padding-left:1.3rem;margin-bottom:.75rem}
+    li{margin-bottom:.3rem;font-size:.92rem;color:#ccc}
+    .card{background:#16213e;border-radius:10px;padding:.9rem 1.1rem;margin:.5rem 0}
+    .card h3{color:#7fb3ff;font-size:.9rem;margin-bottom:.35rem}
+    .card p{margin:0;font-size:.88rem;color:#aaa}
+    .mode-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin:.5rem 0}
+    .badge{display:inline-block;padding:.15rem .45rem;border-radius:4px;font-size:.75rem;font-weight:700;margin-right:.3rem}
+    .badge-auto{background:#0f3460;color:#7fb3ff}
+    .badge-manual{background:#3d0f3f;color:#f9a8f9}
+    .badge-classic{background:#1a3000;color:#aaff66}
+    .pattern-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:.5rem;margin:.5rem 0}
+    .pattern{background:#16213e;border-radius:8px;padding:.55rem .75rem}
+    .pattern .name{color:#fff;font-size:.85rem;font-weight:600}
+    .pattern .desc{color:#777;font-size:.78rem}
+    .step{display:flex;gap:.75rem;margin:.5rem 0;align-items:flex-start}
+    .step-num{background:#e94560;color:#fff;border-radius:50%;width:1.6rem;height:1.6rem;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;flex-shrink:0;margin-top:.1rem}
+    .step p{margin:0;font-size:.9rem}
+    .tip{background:#1a3a1a;border-radius:8px;padding:.65rem 1rem;margin:.5rem 0;font-size:.88rem;color:#7fcc7f;border-left:3px solid #4a8a4a}
+    .warn{background:#3a1a00;border-radius:8px;padding:.65rem 1rem;margin:.5rem 0;font-size:.88rem;color:#f0c040;border-left:3px solid #8a5a00}
+    .footer-links{margin-top:3rem;padding-top:1rem;border-top:1px solid #2a2a4a;display:flex;gap:1rem;flex-wrap:wrap;font-size:.82rem}
+    .footer-links a{color:#555;text-decoration:none}
+    .footer-links a:hover{color:#aaa}
+    a{color:#7fb3ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <nav>
+    <a href="/" class="home">🎱 Bingo</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/faq.html">Help & FAQ</a>
+  </nav>
+
+  <h1>Help &amp; FAQ</h1>
+  <p class="subtitle">Everything you need to know to play Bingo Multiplayer</p>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>🚀 Getting Started</h2>
+
+  <p class="q">How do I join a game?</p>
+  <p>You need a <strong>room code</strong> from the person who created the game (the host). On the home screen, enter your name and the 6-character room code, then tap <em>Join Game →</em>. No account required!</p>
+
+  <p class="q">Do I need to create an account?</p>
+  <p>No. You can play as a guest — just pick a fun name (or use the 🎲 random button) and enter the room code. If you want to <strong>create your own rooms</strong> and host games, you need to sign in with Google or an email/password.</p>
+
+  <p class="q">What is a room code?</p>
+  <p>A room code is a 6-character code (letters and numbers, e.g. <code>BK4R7Z</code>) that the host shares with friends to invite them into a private game. Rooms are invite-only — nobody can stumble into your game without the code.</p>
+
+  <p class="q">How do I create a room and invite friends?</p>
+  <div class="step"><div class="step-num">1</div><p>Sign in (Google or email). The lobby appears.</p></div>
+  <div class="step"><div class="step-num">2</div><p>Choose your <strong>Game Mode</strong>, <strong>Win Rule</strong>, and (for Turn/Classic) how to pick the first caller.</p></div>
+  <div class="step"><div class="step-num">3</div><p>Tap <em>+ Create Room</em>. You'll enter the game waiting room.</p></div>
+  <div class="step"><div class="step-num">4</div><p>Share the <strong>room code</strong> shown in the game header (green monospace code) with your friends — via WhatsApp, text, or chat.</p></div>
+  <div class="step"><div class="step-num">5</div><p>Once everyone has joined, tap <em>Start</em>.</p></div>
+
+  <div class="tip">💡 Friends don't need an account — they just enter the code on the guest screen.</div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>🎮 Game Modes</h2>
+
+  <div class="mode-grid">
+    <div class="card">
+      <h3><span class="badge badge-auto">⏱ Auto</span> Auto Mode</h3>
+      <p>Numbers are called automatically every 8 seconds. No one needs to do anything — just watch and mark your card. Great for large groups or casual play.</p>
+    </div>
+    <div class="card">
+      <h3><span class="badge badge-manual">👆 Turn</span> Turn Mode</h3>
+      <p>Players take turns calling numbers in a round-robin rotation. When it's your turn, a <strong>📣 Call!</strong> button appears. The system picks a random number for you. If you don't call in 15 seconds, the host auto-calls for you.</p>
+    </div>
+    <div class="card">
+      <h3><span class="badge badge-classic">🎯 Classic</span> Classic Mode</h3>
+      <p>Like a real bingo hall. The caller picks a number by <strong>tapping it on their own board</strong> (blue glowing cells). Numbers 1–25 are used (no B-I-N-G-O columns). Takes turns round-robin style.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>🥇 Who Calls First? (Turn &amp; Classic modes)</h2>
+
+  <p class="q">Random</p>
+  <p>The app randomly shuffles all players and assigns a calling order.</p>
+
+  <p class="q">Rock Paper Scissors (RPS)</p>
+  <p>All players choose 🪨 Rock, 📄 Paper, or ✂️ Scissors (15-second window). The winner calls first; losers follow. On a tie, everyone plays again. If you don't pick in time, a random choice is made for you.</p>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>🏆 Win Patterns</h2>
+  <p>The host selects a win pattern when creating the room. You win when your marked numbers match the pattern. Here are all 11 patterns:</p>
+
+  <div class="pattern-grid">
+    <div class="pattern"><div class="name">━ Single Line</div><div class="desc">Any 1 row, column, or diagonal</div></div>
+    <div class="pattern"><div class="name">═ Double Line</div><div class="desc">Any 2 lines</div></div>
+    <div class="pattern"><div class="name">≡ Triple Line</div><div class="desc">Any 3 lines</div></div>
+    <div class="pattern"><div class="name">5 Five Lines</div><div class="desc">All 5 rows OR all 5 columns</div></div>
+    <div class="pattern"><div class="name">⬜ Four Corners</div><div class="desc">All 4 corner squares</div></div>
+    <div class="pattern"><div class="name">✕ X Pattern</div><div class="desc">Both diagonals</div></div>
+    <div class="pattern"><div class="name">+ Plus Pattern</div><div class="desc">Middle row + middle column</div></div>
+    <div class="pattern"><div class="name">T T Pattern</div><div class="desc">Top row + middle column</div></div>
+    <div class="pattern"><div class="name">L L Shape</div><div class="desc">Left column + bottom row</div></div>
+    <div class="pattern"><div class="name">▣ Frame</div><div class="desc">All 16 outer border squares</div></div>
+    <div class="pattern"><div class="name">⬛ Blackout</div><div class="desc">Every single square (Full House)</div></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>💡 Playing Tips</h2>
+
+  <p class="q">What are the gold glowing numbers on my board?</p>
+  <p>Gold-glowing cells show numbers that have been called but you haven't marked yet. Tap them to mark! You can toggle this highlight on/off with the 💡 button in the game header.</p>
+
+  <p class="q">What are the blue glowing numbers? (Classic mode)</p>
+  <p>Blue-glowing cells appear on the <em>caller's</em> board in Classic mode. They are numbers that haven't been called yet — tap one to call it as the next number!</p>
+
+  <p class="q">Can I mark a number that hasn't been called?</p>
+  <p>No. If you tap a number that hasn't been called, the cell briefly flashes red to let you know. Only called numbers can be marked.</p>
+
+  <p class="q">How do I know whose turn it is?</p>
+  <p>The top bar shows the current caller's name. When it's your turn, it says <em>"Your turn to call!"</em> in gold. The timer counts down how long you have.</p>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>🔧 Troubleshooting</h2>
+
+  <p class="q">I entered the room code but got "Room not found"</p>
+  <ul>
+    <li>Double-check the code — it's case-insensitive but must be the right 6 characters.</li>
+    <li>Room codes use only unambiguous characters (no zero/O, no one/I/L confusion).</li>
+    <li>Ask the host to confirm the code shown in their game header.</li>
+    <li>The room must still be in "waiting" status — if the game started, you can't join.</li>
+  </ul>
+
+  <p class="q">The game says "That room already started"</p>
+  <p>Rooms only accept new players before the host taps Start. Ask the host to create a new room for you to join before the game begins.</p>
+
+  <p class="q">I refreshed the page and lost my game</p>
+  <div class="warn">⚠️ Guests: refreshing the page ends your session. You'll need to get a new code and rejoin (if the game hasn't started). Registered users stay logged in after a refresh but may need to re-navigate to the game.</div>
+
+  <p class="q">Other players are missing from the player list</p>
+  <p>The player list updates in real time. If someone's name is missing, they may not have joined yet, or there may be a short sync delay. Wait a few seconds and it should update.</p>
+
+  <p class="q">The game is stuck / Start button doesn't work</p>
+  <ul>
+    <li>Only the host (room creator) can start the game.</li>
+    <li>Make sure at least one player has joined.</li>
+    <li>If there's a connection issue, try leaving and re-creating the room.</li>
+  </ul>
+
+  <p class="q">What happens if the host leaves?</p>
+  <p>If the host leaves mid-game, the game will continue until a winner is found in Auto mode (numbers stop being called), or stall in Turn/Classic mode (no one can advance the turn). For best results, the host should stay until the game ends.</p>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>📱 Device Support</h2>
+  <p>Bingo Multiplayer works in any modern browser on phones, tablets, and desktops. No app download required. Chrome, Safari, Firefox, and Edge are all supported. JavaScript must be enabled.</p>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <h2>✉️ Still need help?</h2>
+  <p>Email us at <a href="mailto:brahma7777j@gmail.com">brahma7777j@gmail.com</a> and we'll get back to you.</p>
+
+  <div class="footer-links">
+    <a href="/">🎱 Play Bingo</a>
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms &amp; Conditions</a>
+  </div>
+
+</div>
+</body>
+</html>

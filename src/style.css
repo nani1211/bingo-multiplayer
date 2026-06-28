@@ -18,6 +18,12 @@ input{padding:.6rem 1rem;border-radius:8px;border:1px solid #444;background:#162
 .divider{text-align:center;color:#555;font-size:.85rem}
 .error{color:#e94560;font-size:.82rem;min-height:1rem}
 
+/* Footer */
+#app-footer{text-align:center;padding:1.2rem 0 .5rem;display:flex;justify-content:center;align-items:center;gap:.6rem;flex-wrap:wrap}
+#app-footer a{color:#333;font-size:.75rem;text-decoration:none;transition:color .15s}
+#app-footer a:hover{color:#777}
+#app-footer span{color:#2a2a3a;font-size:.75rem}
+
 /* Auth tabs */
 .auth-tabs{display:flex;gap:.4rem}
 .auth-tab{flex:1;border-radius:8px;background:#0f1b35;color:#aaa;border:2px solid transparent;font-size:.88rem;padding:.45rem}
