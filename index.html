@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bingo Multiplayer</title>
+  <link rel="stylesheet" href="/src/style.css"/>
+</head>
+<body>
+<div id="app">
+
+  <!-- ── Auth ──────────────────────────────────── -->
+  <div id="screen-auth" class="screen active">
+    <h1>🎱 Bingo</h1>
+    <button id="btn-google-login">Sign in with Google</button>
+    <div class="divider">or</div>
+    <input id="input-email" type="email" placeholder="Email"/>
+    <input id="input-password" type="password" placeholder="Password"/>
+    <button id="btn-email-login">Sign In</button>
+    <button id="btn-email-signup">Sign Up</button>
+    <p id="auth-error" class="error"></p>
+  </div>
+
+  <!-- ── Lobby ─────────────────────────────────── -->
+  <div id="screen-lobby" class="screen">
+    <header>
+      <h1>🎱 Bingo</h1>
+      <span id="user-display-name"></span>
+      <button id="btn-logout" class="btn-ghost">Sign Out</button>
+    </header>
+
+    <div class="create-panel">
+      <div class="create-row">
+        <span class="label">Mode</span>
+        <div class="toggle-group" id="mode-toggle">
+          <button class="toggle active" data-val="auto">⏱ Auto</button>
+          <button class="toggle" data-val="manual">👆 Turn</button>
+          <button class="toggle" data-val="classic25">🎯 Classic</button>
+        </div>
+      </div>
+      <div class="create-row">
+        <span class="label">Win rule</span>
+        <select id="win-pattern-select"></select>
+      </div>
+      <!-- Only shown for Turn / Classic modes -->
+      <div class="create-row" id="turn-order-row" style="display:none">
+        <span class="label">1st caller</span>
+        <div class="toggle-group" id="turn-order-toggle">
+          <button class="toggle active" data-val="random">🎲 Random</button>
+          <button class="toggle" data-val="rps">🪨 RPS</button>
+        </div>
+      </div>
+      <button id="btn-create-room">+ Create Room</button>
+    </div>
+
+    <!-- Join by code -->
+    <div class="join-code-row">
+      <input id="input-room-code" type="text" placeholder="Room code" maxlength="6" autocomplete="off" spellcheck="false"/>
+      <button id="btn-join-code">Join Code</button>
+    </div>
+    <p id="code-error" class="error"></p>
+
+    <h2>Open Rooms</h2>
+    <ul id="room-list"></ul>
+  </div>
+
+  <!-- ── Game ──────────────────────────────────── -->
+  <div id="screen-game" class="screen">
+    <header>
+      <button id="btn-leave-room" class="btn-ghost">← Leave</button>
+      <span id="game-room-id"></span>
+      <span id="game-badges"></span>
+      <!-- Highlight toggle -->
+      <button id="btn-highlight-toggle" class="btn-ghost btn-icon" title="Toggle number highlight">💡</button>
+    </header>
+
+    <!-- Top bar: current number / timer / action -->
+    <div class="top-bar">
+      <div class="current-wrap">
+        <div class="current-label">Called</div>
+        <div id="current-number">—</div>
+      </div>
+      <div class="mid-wrap">
+        <div id="turn-indicator"></div>
+        <div id="timer"></div>
+      </div>
+      <div class="action-wrap">
+        <button id="btn-start-game"  style="display:none">Start</button>
+        <button id="btn-call-number" style="display:none">📣 Call!</button>
+      </div>
+    </div>
+
+    <!-- Called numbers history -->
+    <div>
+      <div class="section-label">Numbers called</div>
+      <div id="called-numbers"></div>
+    </div>
+
+    <!-- Win pattern hint -->
+    <div id="win-hint" class="win-hint"></div>
+
+    <!-- Card column labels -->
+    <div class="card-header" id="card-header">
+      <span>B</span><span>I</span><span>N</span><span>G</span><span>O</span>
+    </div>
+    <div id="bingo-card"></div>
+
+    <div id="players-list"></div>
+    <p id="game-message"></p>
+
+    <!-- ── RPS Overlay ─────────────────────────── -->
+    <div id="rps-overlay" style="display:none">
+      <div class="rps-box">
+        <div id="rps-title">🪨 Rock Paper Scissors</div>
+        <div id="rps-round-label"></div>
+        <div id="rps-timer-display"></div>
+        <div class="rps-choices">
+          <button class="rps-btn" id="rps-rock">🪨<br>Rock</button>
+          <button class="rps-btn" id="rps-paper">📄<br>Paper</button>
+          <button class="rps-btn" id="rps-scissors">✂️<br>Scissors</button>
+          <button class="rps-btn rps-random" id="rps-random-btn">🎲<br>Random</button>
+        </div>
+        <div id="rps-status"></div>
+        <div id="rps-player-list"></div>
+      </div>
+    </div>
+
+  </div><!-- /screen-game -->
+</div><!-- /app -->
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

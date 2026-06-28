@@ -1,0 +1,123 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#1a1a2e;color:#eee;min-height:100vh;display:flex;justify-content:center;padding:.75rem}
+#app{width:100%;max-width:480px}
+.screen{display:none;flex-direction:column;gap:.65rem}
+.screen.active{display:flex}
+h1{font-size:2rem;text-align:center;color:#e94560}
+h2{font-size:.8rem;text-transform:uppercase;letter-spacing:1px;color:#555}
+
+/* Buttons */
+button{padding:.6rem 1.2rem;border:none;border-radius:8px;cursor:pointer;font-size:1rem;background:#e94560;color:#fff;transition:opacity .15s,transform .1s}
+button:hover:not(:disabled){opacity:.88}
+button:active:not(:disabled){transform:scale(.97)}
+button:disabled{opacity:.4;cursor:default}
+.btn-ghost{background:transparent;border:1px solid #444;color:#aaa;font-size:.82rem;padding:.3rem .65rem}
+.btn-icon{font-size:1rem;padding:.3rem .5rem;border-radius:6px}
+
+input{padding:.6rem 1rem;border-radius:8px;border:1px solid #444;background:#16213e;color:#eee;font-size:1rem}
+.divider{text-align:center;color:#555;font-size:.85rem}
+.error{color:#e94560;font-size:.82rem;min-height:1rem}
+
+/* Header */
+header{display:flex;align-items:center;gap:.4rem;padding-bottom:.5rem;border-bottom:1px solid #2a2a4a;flex-wrap:wrap}
+header h1{font-size:1.3rem}
+header span{font-size:.8rem;color:#aaa}
+#game-room-id{font-size:.9rem;font-weight:800;letter-spacing:2px;color:#aaff66;font-family:monospace;background:#0a2a0a;padding:.15rem .5rem;border-radius:4px;border:1px solid #3a6a3a}
+header .btn-ghost{margin-left:auto}
+
+/* Create panel */
+.create-panel{background:#16213e;border-radius:10px;padding:.75rem;display:flex;flex-direction:column;gap:.6rem}
+.create-row{display:flex;align-items:center;gap:.75rem}
+.label{font-size:.78rem;color:#888;min-width:58px}
+.toggle-group{display:flex;gap:3px;flex-wrap:wrap}
+.toggle{padding:.3rem .65rem;border-radius:6px;font-size:.82rem;background:#0f1b35;color:#aaa}
+.toggle.active{background:#e94560;color:#fff}
+select{flex:1;padding:.32rem .5rem;border-radius:6px;border:1px solid #444;background:#0f1b35;color:#eee;font-size:.82rem}
+
+/* Join by code */
+.join-code-row{display:flex;gap:.5rem}
+.join-code-row input{flex:1;font-size:1.1rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;text-align:center}
+.join-code-row button{white-space:nowrap}
+.room-code-chip{display:inline-block;background:#0a2a0a;color:#aaff66;border:1px solid #3a6a3a;border-radius:4px;padding:.1rem .4rem;font-size:.72rem;font-weight:700;letter-spacing:2px;margin-left:4px;font-family:monospace}
+
+/* Room list */
+#room-list{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+#room-list li{background:#16213e;padding:.6rem .8rem;border-radius:8px;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.room-right{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:#aaa}
+.room-right button{padding:.28rem .65rem;font-size:.8rem}
+.empty-rooms{color:#555;font-size:.83rem;padding:.4rem 0}
+
+/* Badges */
+.badge,.room-badge{display:inline-block;padding:.12rem .45rem;border-radius:4px;font-size:.7rem;font-weight:600;margin-left:3px}
+.badge-auto{background:#0f3460;color:#7fb3ff}
+.badge-manual{background:#3d0f3f;color:#f9a8f9}
+.badge-classic25{background:#1a3000;color:#aaff66}
+.badge-pattern{background:#1a3a1a;color:#7fcc7f}
+.badge-rps{background:#2a1a00;color:#f0c040}
+
+/* Top bar */
+.top-bar{background:#16213e;border-radius:12px;padding:.75rem 1rem;display:grid;grid-template-columns:auto 1fr auto;gap:.5rem;align-items:center}
+.current-wrap{text-align:center}
+.current-label{font-size:.62rem;color:#666;text-transform:uppercase;letter-spacing:1px}
+#current-number{font-size:3rem;font-weight:900;color:#e94560;line-height:1;min-width:3.2rem}
+.mid-wrap{padding:0 .5rem}
+#turn-indicator{font-size:.82rem;color:#aaa;margin-bottom:3px;min-height:1.1rem}
+.your-turn{color:#f0c040;font-weight:700;font-size:.9rem}
+#timer{font-size:1rem;font-weight:700;color:#7fb3ff;min-height:1.3rem}
+#timer.urgent{color:#e94560}
+.action-wrap{display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+#btn-start-game{padding:.42rem .85rem;font-size:.9rem}
+#btn-call-number{background:#f0c040;color:#1a1a2e;font-weight:700;font-size:1rem;padding:.48rem .95rem;border-radius:8px;animation:pulse 1s ease-in-out infinite alternate}
+@keyframes pulse{from{box-shadow:0 0 0 0 #f0c04066}to{box-shadow:0 0 0 8px #f0c04000}}
+
+/* Number picker (classic 25) */
+#number-picker{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.num-btn{padding:.4rem;border-radius:6px;font-size:.9rem;font-weight:700;background:#0f3460;color:#eee;border:2px solid transparent}
+.num-btn:hover:not(.used){border-color:#e94560;background:#1a3a6a}
+.num-btn.used{background:#111;color:#444;cursor:default}
+
+/* Called numbers */
+.section-label{font-size:.68rem;color:#555;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+#called-numbers{display:flex;flex-wrap:wrap;gap:4px;max-height:4.5rem;overflow-y:auto}
+.called-num{width:1.8rem;height:1.8rem;border-radius:50%;background:#0f3460;display:flex;align-items:center;justify-content:center;font-size:.73rem;font-weight:700;flex-shrink:0}
+.called-num.latest{background:#e94560;transform:scale(1.2)}
+
+/* Win hint */
+.win-hint{font-size:.76rem;color:#7fcc7f;background:#1a3a1a;padding:.28rem .55rem;border-radius:6px}
+
+/* Card */
+.card-header{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;text-align:center;font-weight:900;font-size:1.1rem;color:#e94560;padding:0 1px}
+#bingo-card{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.cell{aspect-ratio:1;background:#16213e;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;font-weight:700;cursor:pointer;border:2px solid transparent;transition:background .12s,transform .1s;user-select:none}
+.cell:hover:not(.marked):not(.free):not(.hot){border-color:#e94560;transform:scale(1.06)}
+.cell.marked{background:#e94560;border-color:#ff6b6b;cursor:default}
+.cell.free{background:#0f3460;cursor:default;font-size:.62rem;color:#7fb3ff}
+.cell.hot{border-color:#f0c040;background:#2a2200;color:#f0c040;animation:hotpulse .7s ease-in-out infinite alternate;cursor:pointer}
+.cell.hot:hover{transform:scale(1.08)}
+@keyframes hotpulse{from{box-shadow:0 0 0 0 #f0c04066;border-color:#f0c040}to{box-shadow:0 0 10px 4px #f0c04033;border-color:#ffe080}}
+.cell.callable{border-color:#7fb3ff;background:#0a1a35;color:#7fb3ff;animation:callpulse .8s ease-in-out infinite alternate;cursor:pointer}
+.cell.callable:hover{transform:scale(1.08);background:#0f2a55}
+@keyframes callpulse{from{box-shadow:0 0 0 0 #7fb3ff44;border-color:#7fb3ff}to{box-shadow:0 0 10px 4px #7fb3ff22;border-color:#aad4ff}}
+.cell.blocked{border-color:#e94560;background:#3a0000;animation:none}
+
+/* Players */
+#players-list{display:flex;flex-wrap:wrap;gap:.4rem}
+.player-chip{background:#16213e;padding:.22rem .55rem;border-radius:20px;font-size:.76rem;color:#ccc}
+.player-chip.me{border:1px solid #555;color:#fff}
+.player-chip.winner{background:#e94560;color:#fff;font-weight:700}
+#game-message{text-align:center;font-size:1.25rem;font-weight:800;color:#f0c040;min-height:2rem}
+
+/* ── RPS Overlay ───────────────────────────────── */
+#rps-overlay{position:fixed;inset:0;background:#000a;display:flex;align-items:center;justify-content:center;z-index:100}
+.rps-box{background:#16213e;border-radius:16px;padding:1.5rem;width:min(90vw,360px);display:flex;flex-direction:column;gap:.75rem;align-items:center;text-align:center;border:2px solid #333}
+#rps-title{font-size:1.4rem;font-weight:800;color:#f0c040}
+#rps-round-label{font-size:.9rem;color:#e94560;min-height:1.2rem}
+#rps-timer-display{font-size:1.6rem;font-weight:900;color:#7fb3ff;min-height:2rem}
+#rps-timer-display.urgent{color:#e94560}
+.rps-choices{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;width:100%}
+.rps-btn{background:#0f3460;color:#eee;border-radius:8px;padding:.6rem .3rem;font-size:1.2rem;line-height:1.3;height:4rem;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rps-btn:hover:not(:disabled){background:#1a4a80}
+.rps-btn.rps-random{background:#2a2200;color:#f0c040}
+#rps-status{font-size:.9rem;color:#7fcc7f;min-height:1.2rem;font-weight:700}
+#rps-player-list{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center}
+.rps-player{background:#0f1b35;padding:.2rem .5rem;border-radius:12px;font-size:.78rem;color:#ccc}
