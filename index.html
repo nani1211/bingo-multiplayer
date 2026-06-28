@@ -12,13 +12,34 @@
   <!-- ── Auth ──────────────────────────────────── -->
   <div id="screen-auth" class="screen active">
     <h1>🎱 Bingo</h1>
-    <button id="btn-google-login">Sign in with Google</button>
-    <div class="divider">or</div>
-    <input id="input-email" type="email" placeholder="Email"/>
-    <input id="input-password" type="password" placeholder="Password"/>
-    <button id="btn-email-login">Sign In</button>
-    <button id="btn-email-signup">Sign Up</button>
-    <p id="auth-error" class="error"></p>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="guest">🎲 Play as Guest</button>
+      <button class="auth-tab" data-tab="signin">🔐 Sign In</button>
+    </div>
+
+    <!-- Guest panel -->
+    <div id="auth-panel-guest" class="auth-panel active">
+      <p class="auth-hint">No account needed — pick a fun name and enter the room code!</p>
+      <div class="name-row">
+        <input id="guest-name" type="text" placeholder="Your name" maxlength="24" autocomplete="off" spellcheck="false"/>
+        <button id="btn-random-name" class="btn-ghost" title="Pick a random name">🎲</button>
+      </div>
+      <input id="guest-room-code" type="text" placeholder="Room code (from host)" maxlength="6" autocomplete="off" spellcheck="false"/>
+      <button id="btn-guest-join">Join Game →</button>
+      <p id="guest-error" class="error"></p>
+    </div>
+
+    <!-- Sign in panel -->
+    <div id="auth-panel-signin" class="auth-panel">
+      <button id="btn-google-login">Sign in with Google</button>
+      <div class="divider">or</div>
+      <input id="input-email" type="email" placeholder="Email"/>
+      <input id="input-password" type="password" placeholder="Password"/>
+      <button id="btn-email-login">Sign In</button>
+      <button id="btn-email-signup">Sign Up</button>
+      <p id="auth-error" class="error"></p>
+    </div>
   </div>
 
   <!-- ── Lobby ─────────────────────────────────── -->
@@ -60,8 +81,6 @@
     </div>
     <p id="code-error" class="error"></p>
 
-    <h2>Open Rooms</h2>
-    <ul id="room-list"></ul>
   </div>
 
   <!-- ── Game ──────────────────────────────────── -->

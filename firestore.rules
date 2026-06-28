@@ -14,7 +14,9 @@ service cloud.firestore {
       allow read: if request.auth != null;
 
       // ── Create ───────────────────────────────────────────────────────
+      // Only registered (non-anonymous) users may host rooms
       allow create: if request.auth != null
+        && request.auth.token.firebase.sign_in_provider != 'anonymous'
         && request.resource.data.hostId      == request.auth.uid
         && request.resource.data.status      == 'waiting'
         && request.resource.data.winner      == null

@@ -1,6 +1,7 @@
 import {
   GoogleAuthProvider, signInWithPopup,
   createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  signInAnonymously,
   signOut, onAuthStateChanged, updateProfile
 } from 'firebase/auth';
 import {
@@ -40,6 +41,17 @@ let highlightOn = localStorage.getItem('bingo_highlight') !== 'false';
 // Lobby form state
 let selectedMode      = 'auto';
 let selectedTurnOrder = 'random';
+
+// ─── Guest names ─────────────────────────────────────────────────────
+const GUEST_ADJ  = ['Lucky','Happy','Swift','Bold','Brave','Calm','Wild','Fluffy','Mighty','Sneaky','Sleepy','Bright'];
+const GUEST_NOUN = ['Panda','Tiger','Fox','Dolphin','Koala','Penguin','Rabbit',
+                    'Mango','Kiwi','Berry','Peach','Lemon',
+                    'Waffle','Noodle','Taco','Pizza','Ramen','Sushi',
+                    'Tokyo','Paris','Cairo','Sydney','Lima','Vienna'];
+function randomGuestName() {
+  return GUEST_ADJ[Math.floor(Math.random() * GUEST_ADJ.length)] + ' ' +
+         GUEST_NOUN[Math.floor(Math.random() * GUEST_NOUN.length)];
+}
 
 function generateRoomCode() {
   // Unambiguous characters (no 0/O, 1/I/L confusion)
@@ -92,16 +104,71 @@ function getCalledFromDOM() {
     .map(el => Number(el.textContent));
 }
 
+// ─── Auth tabs ───────────────────────────────────────────────────────
+qs('#screen-auth').addEventListener('click', e => {
+  const tab = e.target.closest('.auth-tab');
+  if (!tab) return;
+  qs('#screen-auth').querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+  qs('#screen-auth').querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+  tab.classList.add('active');
+  qs(`#auth-panel-${tab.dataset.tab}`).classList.add('active');
+});
+
+// ─── Guest join ──────────────────────────────────────────────────────
+const guestNameEl     = qs('#guest-name');
+const guestRoomCodeEl = qs('#guest-room-code');
+const guestErrEl      = qs('#guest-error');
+
+// Pre-fill with a random fun name
+guestNameEl.value = randomGuestName();
+
+qs('#btn-random-name').onclick = () => { guestNameEl.value = randomGuestName(); };
+
+async function guestJoin() {
+  const name = guestNameEl.value.trim();
+  const code = guestRoomCodeEl.value.trim().toUpperCase();
+  if (!name) { guestErrEl.textContent = 'Please enter your name'; return; }
+  if (code.length < 4) { guestErrEl.textContent = 'Enter the room code from the host'; return; }
+  guestErrEl.textContent = '';
+  qs('#btn-guest-join').disabled = true;
+  try {
+    const cred = await signInAnonymously(auth);
+    await updateProfile(cred.user, { displayName: name });
+    currentUser = auth.currentUser;
+    const snap = await getDocs(query(collection(db, 'rooms'), where('roomCode', '==', code)));
+    if (snap.empty) throw new Error('Room not found — check the code');
+    const roomDoc = snap.docs[0];
+    if (roomDoc.data().status !== 'waiting') throw new Error('That room already started');
+    await joinRoom(roomDoc.id);
+    guestRoomCodeEl.value = '';
+  } catch (e) {
+    console.error('Guest join error:', e);
+    guestErrEl.textContent = e.code === 'auth/operation-not-allowed'
+      ? 'Guest join not enabled yet — try Sign In instead'
+      : e.message;
+    qs('#btn-guest-join').disabled = false;
+  }
+}
+qs('#btn-guest-join').onclick = guestJoin;
+guestRoomCodeEl.addEventListener('keydown', e => { if (e.key === 'Enter') guestJoin(); });
+guestRoomCodeEl.addEventListener('input', e => {
+  e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+});
+
 // ─── Auth ────────────────────────────────────────────────────────────
 onAuthStateChanged(auth, user => {
   currentUser = user;
-  if (user) {
-    qs('#user-display-name').textContent = user.displayName || user.email;
-    showScreen('lobby');
-    listenRooms();
-  } else {
+  if (!user) {
     showScreen('auth');
+    return;
   }
+  if (user.isAnonymous) {
+    // Guests navigate directly: auth screen → game (never through lobby)
+    // On page refresh they return to auth screen (currentRoomId is lost)
+    return;
+  }
+  qs('#user-display-name').textContent = user.displayName || user.email;
+  showScreen('lobby');
 });
 
 qs('#btn-google-login').onclick = async () => {
@@ -120,39 +187,6 @@ qs('#btn-email-signup').onclick = async () => {
 };
 qs('#btn-logout').onclick = () => signOut(auth);
 function authErr(m) { qs('#auth-error').textContent = m; }
-
-// ─── Lobby ───────────────────────────────────────────────────────────
-function listenRooms() {
-  const q = query(collection(db, 'rooms'), where('status', '==', 'waiting'));
-  onSnapshot(q, snap => {
-    const list = qs('#room-list');
-    list.innerHTML = '';
-    snap.forEach(d => {
-      const r = d.data();
-      const pat = getPattern(r.winPattern);
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <div>
-          <b>${r.hostName}</b>
-          <span class="room-badge badge-${r.gameMode}">${modeName(r.gameMode)}</span>
-          <span class="room-badge badge-pattern">${pat.emoji} ${pat.name}</span>
-          ${r.turnOrderMode === 'rps' ? '<span class="room-badge badge-rps">🪨 RPS</span>' : ''}
-          ${r.roomCode ? `<span class="room-code-chip">${r.roomCode}</span>` : ''}
-        </div>
-        <div class="room-right">
-          <span>${r.playerCount || 0} 👤</span>
-          <button data-id="${d.id}">Join</button>
-        </div>`;
-      li.querySelector('button').onclick = async (ev) => {
-        ev.target.disabled = true;
-        try { await joinRoom(d.id); }
-        catch (e) { console.error('Join error:', e); alert('Could not join: ' + e.message); ev.target.disabled = false; }
-      };
-      list.appendChild(li);
-    });
-    if (snap.empty) list.innerHTML = '<li class="empty-rooms">No open rooms — create one!</li>';
-  });
-}
 
 // ─── Join by room code ───────────────────────────────────────────────
 async function joinByCode() {
@@ -609,9 +643,14 @@ qs('#btn-leave-room').onclick = () => {
   clearAllTimers();
   currentRoomId = null;
   myCard = null; myMarked = [];
+  isCallerPickMode = false;
   playersCache = {};
   qs('#rps-overlay').style.display = 'none';
-  showScreen('lobby');
+  if (currentUser?.isAnonymous) {
+    showScreen('auth');
+  } else {
+    showScreen('lobby');
+  }
 };
 
 function clearAllTimers() {
@@ -681,6 +720,12 @@ function renderPlayers(players) {
 function showScreen(name) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   qs(`#screen-${name}`).classList.add('active');
+  if (name === 'auth') {
+    qs('#btn-guest-join').disabled = false;
+    qs('#guest-error').textContent = '';
+    // Refresh random name for a new session feel
+    if (!qs('#guest-name').value) qs('#guest-name').value = randomGuestName();
+  }
 }
 function qs(sel) { return document.querySelector(sel); }
 function modeName(m) {

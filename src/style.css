@@ -18,6 +18,19 @@ input{padding:.6rem 1rem;border-radius:8px;border:1px solid #444;background:#162
 .divider{text-align:center;color:#555;font-size:.85rem}
 .error{color:#e94560;font-size:.82rem;min-height:1rem}
 
+/* Auth tabs */
+.auth-tabs{display:flex;gap:.4rem}
+.auth-tab{flex:1;border-radius:8px;background:#0f1b35;color:#aaa;border:2px solid transparent;font-size:.88rem;padding:.45rem}
+.auth-tab.active{background:#e94560;color:#fff;border-color:#ff6b6b}
+.auth-panel{display:none;flex-direction:column;gap:.65rem}
+.auth-panel.active{display:flex}
+.auth-hint{color:#777;font-size:.82rem;text-align:center;line-height:1.4}
+
+/* Guest name row */
+.name-row{display:flex;gap:.5rem}
+.name-row input{flex:1}
+.name-row button{flex-shrink:0;font-size:1.1rem;padding:.6rem .75rem}
+
 /* Header */
 header{display:flex;align-items:center;gap:.4rem;padding-bottom:.5rem;border-bottom:1px solid #2a2a4a;flex-wrap:wrap}
 header h1{font-size:1.3rem}
