@@ -1,0 +1,23 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - heading "🎱 Bingo" [level=1] [ref=e4]
+    - generic [ref=e5]:
+      - button "🎲 Play as Guest" [ref=e6] [cursor=pointer]
+      - button "🔐 Sign In" [ref=e7] [cursor=pointer]
+    - generic [ref=e8]:
+      - paragraph [ref=e9]: No account needed — pick a fun name and enter the room code!
+      - generic [ref=e10]:
+        - textbox "Your name" [ref=e11]: Happy Panda
+        - button "🎲" [ref=e12] [cursor=pointer]
+      - textbox "Room code (from host)" [ref=e13]
+      - button "Join Game →" [ref=e14] [cursor=pointer]
+      - paragraph [ref=e15]
+  - contentinfo [ref=e16]:
+    - link "Privacy Policy" [ref=e17] [cursor=pointer]:
+      - /url: /privacy.html
+    - generic [ref=e18]: ·
+    - link "Terms" [ref=e19] [cursor=pointer]:
+      - /url: /terms.html
+    - generic [ref=e20]: ·
+    - link "Help & FAQ" [ref=e21] [cursor=pointer]:
+      - /url: /faq.html

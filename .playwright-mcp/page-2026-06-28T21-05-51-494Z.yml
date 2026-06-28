@@ -1,0 +1,175 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - link "🎱 Bingo" [ref=e4] [cursor=pointer]:
+      - /url: /
+    - link "Privacy" [ref=e5] [cursor=pointer]:
+      - /url: /privacy.html
+    - link "Terms" [ref=e6] [cursor=pointer]:
+      - /url: /terms.html
+    - link "Help & FAQ" [ref=e7] [cursor=pointer]:
+      - /url: /faq.html
+  - heading "Help & FAQ" [level=1] [ref=e8]
+  - paragraph [ref=e9]: Everything you need to know to play Bingo Multiplayer
+  - heading "🚀 Getting Started" [level=2] [ref=e10]
+  - paragraph [ref=e11] [cursor=pointer]: Q How do I join a game?
+  - paragraph [ref=e12]:
+    - text: You need a
+    - strong [ref=e13]: room code
+    - text: from the person who created the game (the host). On the home screen, enter your name and the 6-character room code, then tap
+    - emphasis [ref=e14]: Join Game →
+    - text: . No account required!
+  - paragraph [ref=e15] [cursor=pointer]: Q Do I need to create an account?
+  - paragraph [ref=e16]:
+    - text: No. You can play as a guest — just pick a fun name (or use the 🎲 random button) and enter the room code. If you want to
+    - strong [ref=e17]: create your own rooms
+    - text: and host games, you need to sign in with Google or an email/password.
+  - paragraph [ref=e18] [cursor=pointer]: Q What is a room code?
+  - paragraph [ref=e19]:
+    - text: A room code is a 6-character code (letters and numbers, e.g.
+    - code [ref=e20]: BK4R7Z
+    - text: ) that the host shares with friends to invite them into a private game. Rooms are invite-only — nobody can stumble into your game without the code.
+  - paragraph [ref=e21] [cursor=pointer]: Q How do I create a room and invite friends?
+  - generic [ref=e22]:
+    - generic [ref=e23]: "1"
+    - paragraph [ref=e24]: Sign in (Google or email). The lobby appears.
+  - generic [ref=e25]:
+    - generic [ref=e26]: "2"
+    - paragraph [ref=e27]:
+      - text: Choose your
+      - strong [ref=e28]: Game Mode
+      - text: ","
+      - strong [ref=e29]: Win Rule
+      - text: ", and (for Turn/Classic) how to pick the first caller."
+  - generic [ref=e30]:
+    - generic [ref=e31]: "3"
+    - paragraph [ref=e32]:
+      - text: Tap
+      - emphasis [ref=e33]: + Create Room
+      - text: . You'll enter the game waiting room.
+  - generic [ref=e34]:
+    - generic [ref=e35]: "4"
+    - paragraph [ref=e36]:
+      - text: Share the
+      - strong [ref=e37]: room code
+      - text: shown in the game header (green monospace code) with your friends — via WhatsApp, text, or chat.
+  - generic [ref=e38]:
+    - generic [ref=e39]: "5"
+    - paragraph [ref=e40]:
+      - text: Once everyone has joined, tap
+      - emphasis [ref=e41]: Start
+      - text: .
+  - generic [ref=e42]: 💡 Friends don't need an account — they just enter the code on the guest screen.
+  - heading "🎮 Game Modes" [level=2] [ref=e43]
+  - generic [ref=e44]:
+    - generic [ref=e45]:
+      - heading "⏱ Auto Auto Mode" [level=3] [ref=e46]:
+        - generic [ref=e47]: ⏱ Auto
+        - text: Auto Mode
+      - paragraph [ref=e48]: Numbers are called automatically every 8 seconds. No one needs to do anything — just watch and mark your card. Great for large groups or casual play.
+    - generic [ref=e49]:
+      - heading "👆 Turn Turn Mode" [level=3] [ref=e50]:
+        - generic [ref=e51]: 👆 Turn
+        - text: Turn Mode
+      - paragraph [ref=e52]:
+        - text: Players take turns calling numbers in a round-robin rotation. When it's your turn, a
+        - strong [ref=e53]: 📣 Call!
+        - text: button appears. The system picks a random number for you. If you don't call in 15 seconds, the host auto-calls for you.
+    - generic [ref=e54]:
+      - heading "🎯 Classic Classic Mode" [level=3] [ref=e55]:
+        - generic [ref=e56]: 🎯 Classic
+        - text: Classic Mode
+      - paragraph [ref=e57]:
+        - text: Like a real bingo hall. The caller picks a number by
+        - strong [ref=e58]: tapping it on their own board
+        - text: (blue glowing cells). Numbers 1–25 are used (no B-I-N-G-O columns). Takes turns round-robin style.
+  - heading "🥇 Who Calls First? (Turn & Classic modes)" [level=2] [ref=e59]
+  - paragraph [ref=e60] [cursor=pointer]: Q Random
+  - paragraph [ref=e61]: The app randomly shuffles all players and assigns a calling order.
+  - paragraph [ref=e62] [cursor=pointer]: Q Rock Paper Scissors (RPS)
+  - paragraph [ref=e63]: All players choose 🪨 Rock, 📄 Paper, or ✂️ Scissors (15-second window). The winner calls first; losers follow. On a tie, everyone plays again. If you don't pick in time, a random choice is made for you.
+  - heading "🏆 Win Patterns" [level=2] [ref=e64]
+  - paragraph [ref=e65]: "The host selects a win pattern when creating the room. You win when your marked numbers match the pattern. Here are all 11 patterns:"
+  - generic [ref=e66]:
+    - generic [ref=e67]:
+      - generic [ref=e68]: ━ Single Line
+      - generic [ref=e69]: Any 1 row, column, or diagonal
+    - generic [ref=e70]:
+      - generic [ref=e71]: ═ Double Line
+      - generic [ref=e72]: Any 2 lines
+    - generic [ref=e73]:
+      - generic [ref=e74]: ≡ Triple Line
+      - generic [ref=e75]: Any 3 lines
+    - generic [ref=e76]:
+      - generic [ref=e77]: 5 Five Lines
+      - generic [ref=e78]: All 5 rows OR all 5 columns
+    - generic [ref=e79]:
+      - generic [ref=e80]: ⬜ Four Corners
+      - generic [ref=e81]: All 4 corner squares
+    - generic [ref=e82]:
+      - generic [ref=e83]: ✕ X Pattern
+      - generic [ref=e84]: Both diagonals
+    - generic [ref=e85]:
+      - generic [ref=e86]: + Plus Pattern
+      - generic [ref=e87]: Middle row + middle column
+    - generic [ref=e88]:
+      - generic [ref=e89]: T T Pattern
+      - generic [ref=e90]: Top row + middle column
+    - generic [ref=e91]:
+      - generic [ref=e92]: L L Shape
+      - generic [ref=e93]: Left column + bottom row
+    - generic [ref=e94]:
+      - generic [ref=e95]: ▣ Frame
+      - generic [ref=e96]: All 16 outer border squares
+    - generic [ref=e97]:
+      - generic [ref=e98]: ⬛ Blackout
+      - generic [ref=e99]: Every single square (Full House)
+  - heading "💡 Playing Tips" [level=2] [ref=e100]
+  - paragraph [ref=e101] [cursor=pointer]: Q What are the gold glowing numbers on my board?
+  - paragraph [ref=e102]: Gold-glowing cells show numbers that have been called but you haven't marked yet. Tap them to mark! You can toggle this highlight on/off with the 💡 button in the game header.
+  - paragraph [ref=e103] [cursor=pointer]: Q What are the blue glowing numbers? (Classic mode)
+  - paragraph [ref=e104]:
+    - text: Blue-glowing cells appear on the
+    - emphasis [ref=e105]: caller's
+    - text: board in Classic mode. They are numbers that haven't been called yet — tap one to call it as the next number!
+  - paragraph [ref=e106] [cursor=pointer]: Q Can I mark a number that hasn't been called?
+  - paragraph [ref=e107]: No. If you tap a number that hasn't been called, the cell briefly flashes red to let you know. Only called numbers can be marked.
+  - paragraph [ref=e108] [cursor=pointer]: Q How do I know whose turn it is?
+  - paragraph [ref=e109]:
+    - text: The top bar shows the current caller's name. When it's your turn, it says
+    - emphasis [ref=e110]: "\"Your turn to call!\""
+    - text: in gold. The timer counts down how long you have.
+  - heading "🔧 Troubleshooting" [level=2] [ref=e111]
+  - paragraph [ref=e112] [cursor=pointer]: Q I entered the room code but got "Room not found"
+  - list [ref=e113]:
+    - listitem [ref=e114]: Double-check the code — it's case-insensitive but must be the right 6 characters.
+    - listitem [ref=e115]: Room codes use only unambiguous characters (no zero/O, no one/I/L confusion).
+    - listitem [ref=e116]: Ask the host to confirm the code shown in their game header.
+    - listitem [ref=e117]: The room must still be in "waiting" status — if the game started, you can't join.
+  - paragraph [ref=e118] [cursor=pointer]: Q The game says "That room already started"
+  - paragraph [ref=e119]: Rooms only accept new players before the host taps Start. Ask the host to create a new room for you to join before the game begins.
+  - paragraph [ref=e120] [cursor=pointer]: Q I refreshed the page and lost my game
+  - generic [ref=e121]: "⚠️ Guests: refreshing the page ends your session. You'll need to get a new code and rejoin (if the game hasn't started). Registered users stay logged in after a refresh but may need to re-navigate to the game."
+  - paragraph [ref=e122] [cursor=pointer]: Q Other players are missing from the player list
+  - paragraph [ref=e123]: The player list updates in real time. If someone's name is missing, they may not have joined yet, or there may be a short sync delay. Wait a few seconds and it should update.
+  - paragraph [ref=e124] [cursor=pointer]: Q The game is stuck / Start button doesn't work
+  - list [ref=e125]:
+    - listitem [ref=e126]: Only the host (room creator) can start the game.
+    - listitem [ref=e127]: Make sure at least one player has joined.
+    - listitem [ref=e128]: If there's a connection issue, try leaving and re-creating the room.
+  - paragraph [ref=e129] [cursor=pointer]: Q What happens if the host leaves?
+  - paragraph [ref=e130]: If the host leaves mid-game, the game will continue until a winner is found in Auto mode (numbers stop being called), or stall in Turn/Classic mode (no one can advance the turn). For best results, the host should stay until the game ends.
+  - heading "📱 Device Support" [level=2] [ref=e131]
+  - paragraph [ref=e132]: Bingo Multiplayer works in any modern browser on phones, tablets, and desktops. No app download required. Chrome, Safari, Firefox, and Edge are all supported. JavaScript must be enabled.
+  - heading "✉️ Still need help?" [level=2] [ref=e133]
+  - paragraph [ref=e134]:
+    - text: Email us at
+    - link "brahma7777j@gmail.com" [ref=e135] [cursor=pointer]:
+      - /url: mailto:brahma7777j@gmail.com
+    - text: and we'll get back to you.
+  - generic [ref=e136]:
+    - link "🎱 Play Bingo" [ref=e137] [cursor=pointer]:
+      - /url: /
+    - link "Privacy Policy" [ref=e138] [cursor=pointer]:
+      - /url: /privacy.html
+    - link "Terms & Conditions" [ref=e139] [cursor=pointer]:
+      - /url: /terms.html

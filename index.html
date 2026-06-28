@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#1a1a2e"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="description" content="Free multiplayer bingo game — no account needed. Share a room code and play with friends anywhere."/>
   <title>Bingo Multiplayer</title>
   <link rel="stylesheet" href="/src/style.css"/>
 </head>
@@ -14,7 +18,7 @@
     <h1>🎱 Bingo</h1>
 
     <div class="auth-tabs">
-      <button class="auth-tab active" data-tab="guest">🎲 Play as Guest</button>
+      <button class="auth-tab active" data-tab="guest">🎲 Guest</button>
       <button class="auth-tab" data-tab="signin">🔐 Sign In</button>
     </div>
 
@@ -23,9 +27,15 @@
       <p class="auth-hint">No account needed — pick a fun name and enter the room code!</p>
       <div class="name-row">
         <input id="guest-name" type="text" placeholder="Your name" maxlength="24" autocomplete="off" spellcheck="false"/>
-        <button id="btn-random-name" class="btn-ghost" title="Pick a random name">🎲</button>
+        <button id="btn-random-name" class="btn-ghost btn-icon" title="Pick a random name">🎲</button>
       </div>
       <input id="guest-room-code" type="text" placeholder="Room code (from host)" maxlength="6" autocomplete="off" spellcheck="false"/>
+      <!-- Age confirmation — required before joining -->
+      <label class="age-check">
+        <input type="checkbox" id="age-confirm-guest"/>
+        <span>I am 13 or older. If under 18, I have parental or guardian permission.
+          <a href="/terms.html" target="_blank">Terms</a></span>
+      </label>
       <button id="btn-guest-join">Join Game →</button>
       <p id="guest-error" class="error"></p>
     </div>
@@ -34,10 +44,11 @@
     <div id="auth-panel-signin" class="auth-panel">
       <button id="btn-google-login">Sign in with Google</button>
       <div class="divider">or</div>
-      <input id="input-email" type="email" placeholder="Email"/>
-      <input id="input-password" type="password" placeholder="Password"/>
+      <input id="input-email" type="email" placeholder="Email" autocomplete="email"/>
+      <input id="input-password" type="password" placeholder="Password" autocomplete="current-password"/>
       <button id="btn-email-login">Sign In</button>
       <button id="btn-email-signup">Sign Up</button>
+      <p class="age-note">By signing in you confirm you are 13 or older (or have parental consent if under 18).</p>
       <p id="auth-error" class="error"></p>
     </div>
   </div>
@@ -77,7 +88,7 @@
     <!-- Join by code -->
     <div class="join-code-row">
       <input id="input-room-code" type="text" placeholder="Room code" maxlength="6" autocomplete="off" spellcheck="false"/>
-      <button id="btn-join-code">Join Code</button>
+      <button id="btn-join-code">Join</button>
     </div>
     <p id="code-error" class="error"></p>
 
@@ -88,9 +99,8 @@
     <header>
       <button id="btn-leave-room" class="btn-ghost">← Leave</button>
       <span id="game-room-id"></span>
-      <span id="game-badges"></span>
-      <!-- Highlight toggle -->
       <button id="btn-highlight-toggle" class="btn-ghost btn-icon" title="Toggle number highlight">💡</button>
+      <span id="game-badges"></span>
     </header>
 
     <!-- Top bar: current number / timer / action -->
@@ -145,14 +155,17 @@
     </div>
 
   </div><!-- /screen-game -->
+
+  <!-- Footer inside #app so it sits below the active screen, not beside it -->
+  <footer id="app-footer">
+    <a href="/privacy.html" target="_blank">Privacy Policy</a>
+    <span>·</span>
+    <a href="/terms.html" target="_blank">Terms</a>
+    <span>·</span>
+    <a href="/faq.html" target="_blank">Help &amp; FAQ</a>
+  </footer>
+
 </div><!-- /app -->
 <script type="module" src="/src/main.js"></script>
-<footer id="app-footer">
-  <a href="/privacy.html" target="_blank">Privacy Policy</a>
-  <span>·</span>
-  <a href="/terms.html" target="_blank">Terms</a>
-  <span>·</span>
-  <a href="/faq.html" target="_blank">Help &amp; FAQ</a>
-</footer>
 </body>
 </html>

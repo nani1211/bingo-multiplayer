@@ -1,0 +1,13 @@
+- generic [ref=e3]:
+  - heading "🎱 Bingo" [level=1] [ref=e4]
+  - generic [ref=e5]:
+    - button "🎲 Play as Guest" [ref=e6] [cursor=pointer]
+    - button "🔐 Sign In" [active] [ref=e7] [cursor=pointer]
+  - generic [ref=e16]:
+    - button "Sign in with Google" [ref=e17] [cursor=pointer]
+    - generic [ref=e18]: or
+    - textbox "Email" [ref=e19]
+    - textbox "Password" [ref=e20]
+    - button "Sign In" [ref=e21] [cursor=pointer]
+    - button "Sign Up" [ref=e22] [cursor=pointer]
+    - paragraph [ref=e23]

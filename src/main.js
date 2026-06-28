@@ -129,6 +129,7 @@ async function guestJoin() {
   const code = guestRoomCodeEl.value.trim().toUpperCase();
   if (!name) { guestErrEl.textContent = 'Please enter your name'; return; }
   if (code.length < 4) { guestErrEl.textContent = 'Enter the room code from the host'; return; }
+  if (!qs('#age-confirm-guest').checked) { guestErrEl.textContent = 'Please confirm you meet the age requirement'; return; }
   guestErrEl.textContent = '';
   qs('#btn-guest-join').disabled = true;
   try {
@@ -723,8 +724,8 @@ function showScreen(name) {
   if (name === 'auth') {
     qs('#btn-guest-join').disabled = false;
     qs('#guest-error').textContent = '';
-    // Refresh random name for a new session feel
     if (!qs('#guest-name').value) qs('#guest-name').value = randomGuestName();
+    qs('#age-confirm-guest').checked = false;
   }
 }
 function qs(sel) { return document.querySelector(sel); }
